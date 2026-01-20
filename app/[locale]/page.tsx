@@ -20,7 +20,7 @@ export default function Home({
       <p className={styles.subtitle}>
         {t.rich("sub", {
           bold: (children) => (
-            <strong style={{ color: "red" }}>{children}</strong>
+            <strong className="text-red-800">{children}</strong>
           ),
         })}
       </p>

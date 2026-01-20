@@ -24,6 +24,7 @@ export default function Navbar() {
         <div>
           <SwitcherLocale />
         </div>
+        <div className="text-red-700">hiii</div>
       </nav>
     </header>
   );
