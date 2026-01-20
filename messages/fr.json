@@ -1,5 +1,11 @@
 {
   "home": {
-    "header": "Bienvenue dans la démo !"
+    "header": "Bienvenue dans la démo !",
+    "sub": "Ceci est un site <bold>Next.js</bold> multilingue utilisant next-intl."
+  },
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "contact": "Contact"
   }
 }

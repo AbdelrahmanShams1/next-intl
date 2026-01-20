@@ -1,14 +1,29 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
+import styles from "./home.module.css";
+import { setRequestLocale } from "next-intl/server";
+import { use } from "react";
 
-export default function Home() {
+export default function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = use(params);
+  setRequestLocale(locale);
+
+  const t = useTranslations("home");
+
   return (
-    <div>
-      <h1>Welcome to the Demo!</h1>
-      <p>This is a multilingual Next.js site using next-intl.</p>
-      <div>
-        <Link href="/about">Learn About Us</Link>
-        <Link href="/contact">Contact Us</Link>
-      </div>
-    </div>
+    <main className={styles.container}>
+      <h1 className={styles.title}>{t("header")}</h1>
+      <p className={styles.subtitle}>
+        {t.rich("sub", {
+          bold: (children) => (
+            <strong style={{ color: "red" }}>{children}</strong>
+          ),
+        })}
+      </p>
+    </main>
   );
 }
