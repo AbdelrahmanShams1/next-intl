@@ -1,30 +1,47 @@
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import styles from "./navbar.module.css";
 import SwitcherLocale from "./SwitcherLocale";
+import ThemsButton from "./ThemsButton";
 
 export default function Navbar() {
   const t = useTranslations("nav");
 
   return (
-    <header className={styles.header}>
-      <nav className={styles.nav}>
-        <ul className={styles.links}>
+    <header className="border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-black">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        {/* Links */}
+        <ul className="flex gap-6 text-sm font-medium">
           <li>
-            <Link href="/">{t("home")}</Link>
+            <Link
+              href="/"
+              className="text-zinc-700 transition hover:text-black dark:text-zinc-300 dark:hover:text-white"
+            >
+              {t("home")}
+            </Link>
           </li>
           <li>
-            <Link href="/about">{t("about")}</Link>
+            <Link
+              href="/about"
+              className="text-zinc-700 transition hover:text-black dark:text-zinc-300 dark:hover:text-white"
+            >
+              {t("about")}
+            </Link>
           </li>
           <li>
-            <Link href="/contact">{t("contact")}</Link>
+            <Link
+              href="/contact"
+              className="text-zinc-700 transition hover:text-black dark:text-zinc-300 dark:hover:text-white"
+            >
+              {t("contact")}
+            </Link>
           </li>
         </ul>
 
-        <div>
+        {/* Actions */}
+        <div className="flex items-center gap-4">
           <SwitcherLocale />
+          <ThemsButton />
         </div>
-        <div className="text-red-700">hiii</div>
       </nav>
     </header>
   );

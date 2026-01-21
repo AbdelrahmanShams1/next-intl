@@ -1,6 +1,4 @@
-import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
-import styles from "./home.module.css";
 import { setRequestLocale } from "next-intl/server";
 import { use } from "react";
 
@@ -15,12 +13,19 @@ export default function Home({
   const t = useTranslations("home");
 
   return (
-    <main className={styles.container}>
-      <h1 className={styles.title}>{t("header")}</h1>
-      <p className={styles.subtitle}>
+    <main className="min-h-screen flex flex-col justify-center items-center text-center p-8 bg-gray-50 dark:bg-gray-900">
+      {/* Header */}
+      <h1 className="text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
+        {t("header")}
+      </h1>
+
+      {/* Subtitle */}
+      <p className="text-lg text-gray-700 dark:text-gray-300 max-w-xl">
         {t.rich("sub", {
           bold: (children) => (
-            <strong className="text-red-800">{children}</strong>
+            <strong className="text-red-600 dark:text-red-400">
+              {children}
+            </strong>
           ),
         })}
       </p>
