@@ -46,6 +46,7 @@ const AntInput = <TFormValues extends FieldValues>({
   return (
     <Form.Item
       label={label}
+      layout="vertical"
       validateStatus={getStatus()}
       help={getHelpMessage()}
     >
